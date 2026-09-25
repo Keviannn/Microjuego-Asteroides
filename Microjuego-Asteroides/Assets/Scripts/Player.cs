@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     private Rigidbody _rigid;
 
+    public static int SCORE = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            SCORE = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
