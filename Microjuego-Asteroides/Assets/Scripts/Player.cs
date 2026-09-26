@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Rigidbody _rigid;
 
     public static int SCORE = 0;
+    public static float xBorderLimit = 10f, yBorderLimit = 6f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +31,33 @@ public class Player : MonoBehaviour
 
         _rigid.AddForce(thrustDirection * thrust * thrustForce);
         transform.Rotate(Vector3.forward, -rotation * rotationSpeed);
+
+        var newPos = transform.position;        
+        if(newPos.x > xBorderLimit)
+        {
+            newPos.x = -xBorderLimit+1;
+            Debug.Log("Limite alcanzado derecha");
+        }
+        else if(newPos.x < -xBorderLimit)
+        {
+            newPos.x = xBorderLimit-1;
+            Debug.Log("Limite alcanzado izquierda");
+
+
+        }
+        else if(newPos.y > yBorderLimit)
+        {
+            newPos.y = -yBorderLimit+1;            
+            Debug.Log("Limite alcanzado arriba");
+
+        }
+        else if(newPos.y < -yBorderLimit)
+        {
+            newPos.y = yBorderLimit-1;
+            Debug.Log("Limite alcanzado abajo");
+
+        }
+        transform.position = newPos;
 
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
