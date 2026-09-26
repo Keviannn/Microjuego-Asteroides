@@ -7,11 +7,15 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     public float maxLifeTime = 3f;
     public Vector3 targetVector;
+    public BulletPool _ownerPool; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Start() {}
+
+    private void OnEnable()
     {
-        Destroy(gameObject, maxLifeTime);
+        CancelInvoke(nameof(Release));
+        Invoke(nameof(Release), maxLifeTime);
     }
 
     // Update is called once per frame
@@ -26,9 +30,8 @@ public class Bullet : MonoBehaviour
         {
             IncreaseScore();
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            Release();
         }
-
     }
 
     private void IncreaseScore()
@@ -41,5 +44,10 @@ public class Bullet : MonoBehaviour
     {
         GameObject go = GameObject.FindGameObjectWithTag("Score");
         go.GetComponent<Text>().text = "Puntos: " + Player.SCORE;
+    }
+
+    private void Release()
+    {
+        _ownerPool.ReturnBullet(gameObject);
     }
 }

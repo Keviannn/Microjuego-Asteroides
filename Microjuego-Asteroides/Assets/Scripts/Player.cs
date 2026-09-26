@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
     public float thrustForce = 100f;
     public float rotationSpeed = 120f;
 
-    public GameObject gun, bulletPrefab;
-
+    public GameObject gun;
+    private BulletPool bulletPool;
 
     private Rigidbody _rigid;
 
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rigid = GetComponent<Rigidbody>();
+        bulletPool = GetComponent<BulletPool>();
     }
 
     // Update is called once per frame
@@ -32,10 +33,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
-            GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, Quaternion.identity);
-
-            Bullet balaScript = bullet.GetComponent<Bullet>();
-            balaScript.targetVector = transform.right;
+            bulletPool.GetBullet(gun.transform.position, Quaternion.identity, transform.right);
         }
     }
 
@@ -47,8 +45,4 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-
-    
-
-
 }

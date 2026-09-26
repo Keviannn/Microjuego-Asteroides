@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4546199444074632714
 Transform:
   m_ObjectHideFlags: 0
@@ -106,9 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9c1c9b70a6e4d67bc05abbdc9afa99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  speed: 3
+  speed: 5
   maxLifeTime: 3
   targetVector: {x: 1, y: 0, z: 0}
+  _ownerPool: {fileID: 0}
 --- !u!65 &157666379068859589
 BoxCollider:
   m_ObjectHideFlags: 0
