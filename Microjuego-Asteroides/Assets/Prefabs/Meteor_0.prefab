@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2604732228081064355}
   - component: {fileID: 3786241130217149400}
   - component: {fileID: 2852557713260819490}
+  - component: {fileID: 7991479611169614692}
   m_Layer: 0
   m_Name: Meteor_0
   m_TagString: Enemy
@@ -103,7 +104,7 @@ Rigidbody:
   m_GameObject: {fileID: 386910802122192817}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1.5
   m_AngularDamping: 0.03
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -119,7 +120,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!135 &2852557713260819490
 SphereCollider:
@@ -142,3 +143,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.2
   m_Center: {x: -0.3, y: -2, z: 0}
+--- !u!114 &7991479611169614692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386910802122192817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d137092892a8c898091b1f101efe98aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Meteor
+  smallMeteorPrefab: {fileID: 386910802122192817, guid: ad8bc2813d8d1aca582455f6f362a29d, type: 3}
+  miniSpeed: 4

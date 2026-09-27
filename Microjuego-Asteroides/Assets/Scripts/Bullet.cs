@@ -26,10 +26,14 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag ("Enemy"))
+        if(collision.gameObject.CompareTag("Enemy"))
         {
             IncreaseScore();
-            Destroy(collision.gameObject);
+            Meteor meteor = collision.gameObject.GetComponent<Meteor>();
+            if (meteor != null)
+                meteor.Die(collision);
+            else
+                Destroy(collision.gameObject);
             Release();
         }
     }

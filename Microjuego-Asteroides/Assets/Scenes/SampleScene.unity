@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708092a9744fda91aad630f6970a79c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  thrustForce: 100
-  rotationSpeed: 120
+  thrustForce: 150
+  rotationSpeed: 150
   gun: {fileID: 51965350}
 --- !u!54 &51965354
 Rigidbody:
