@@ -14,9 +14,10 @@ El juego tiene controles de tanque, por lo que funciona con aceleraciones y giro
 ---
 
 ## Estructura
-
+```
 Microjuego-Asteroides/
 ├── Microjuego-Asteroides/   # Proyecto Unity
 ├── Build/                   # Build para Windows
 ├── Report/                  # Mini GDD
 └── README.md
+```
